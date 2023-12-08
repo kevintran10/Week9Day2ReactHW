@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
+
 
 const Like = () => {
   const[like, setLike] = useState(true)
@@ -16,7 +18,7 @@ const Like = () => {
   return (
     <>
         <h3><FaRegHeart /> Like</h3>
-        <button onClick={handleClick}><FaRegHeart /> Like</button>
+        <button onClick={handleClick}> {like ? <FaHeart /> : <FaRegHeart />} Like</button>
     </>
   )
 }
