@@ -20,18 +20,24 @@ const RenderAPI = () => {
     }, [activity]);
 
     const getActivity = async () => {
-        const response = await fetch(`https://www.boredapi.com/api/${activity.activity}`)
-        const data = await response.json()
-        console.log(data)
-    }
+        const response = await fetch(`https://www.boredapi.com/api/activity`);
+        if (response.ok) {
+            const data = await response.json()
+            setActivity({
+                activity: data.activity,
+                type: data.type,
+                participants: data.participants
+            })
+        }
+    };
 
 
     return (
         <>
             <h1 className="text-center">Bored? Find something to do...</h1>
             <div className="w-25 mx-auto">
-                <input onChange={(event) => { setActivity({ ...activity, activity: event.target.value }) }} type="text" />
-                <button>Random activity</button>
+                <input onChange={(event) => { setActivity({ ...activity, activity: event.target.value }) }} placeholder="click the button" type="text" />
+                <button onClick={(event) => { setActivity({ ...activity, activity: event.target.value}) }} type="submit">Random activity</button>
             </div>
             <div>
                 
