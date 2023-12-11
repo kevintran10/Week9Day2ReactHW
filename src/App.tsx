@@ -1,3 +1,4 @@
+import RenderAPI from "./RenderAPI/RenderAPI"
 import ToDo from "./ToDo/ToDo"
 import './index.css'
 const App = () => {
@@ -7,7 +8,8 @@ const App = () => {
 
   return (
     <>
-      <ToDo />
+      
+      <RenderAPI />
     </>
   )
 }
